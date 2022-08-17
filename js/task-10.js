@@ -7,22 +7,23 @@ const btnCreate = document.querySelector("[data-create]");
 const btnDestroy = document.querySelector("[data-destroy]");
 const boxContainer = document.querySelector("#boxes");
 
-let totalSize = 20;
+let totalSize = 30;
 
 function createBoxes() {
   for (let i = 0; i < Number(input.value); i += 1) {
     let box = document.createElement("div");
-    box.style.width = `${(totalSize += 10)}px`;
-    box.style.height = `${(totalSize += 10)}px`;
+    box.style.width = `${totalSize}px`;
+    box.style.height = `${totalSize}px`;
     box.style.backgroundColor = getRandomHexColor();
     box.style.margin = "3px";
+    totalSize += 10;
     boxContainer.append(box);
   }
 }
 
 function destroyBoxes() {
   boxContainer.innerHTML = "";
-  totalSize = 20;
+  totalSize = 30;
 }
 
 btnCreate.addEventListener("click", createBoxes);
